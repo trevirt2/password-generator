@@ -1,6 +1,4 @@
 
-// Assignment code here
-
 //Generates random whole number between 0 and the max parameter
 function randomG (max){
    var rNumber = Math.floor(Math.random() * max);
