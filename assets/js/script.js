@@ -3,6 +3,7 @@
 var passwordLength = 0;
 var charLower = "abcdefghijklmnopqrstuvwxyz";
 var charUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var charNumber = "1234567890";
 var charSpecial = "!#$%&'()*+,-./:;?@][^_{|}~'<=>";
 var passGroup = "";
 var userPassword = "";
@@ -21,15 +22,22 @@ var generatePassword = function() {
       passwordLength = promptPasswordLength();
    }
 
-//   console.log(passwordLength);
+   console.log(passwordLength);
 
    // prompt for lower case characters
    passGroup += promptLowerCase();
 //   console.log(passGroup);
    passGroup += promptUpperCase();
 //   console.log(passGroup);
+   passGroup += promptNumeric();
+// console.log(passGroup);
    passGroup += promptSpecial();
 //   console.log(passGroup);
+
+   if (passGroup === "") {
+      window.alert("Since you did not choose an option, the password will be only lowercase.");
+      passGroup += charLower;
+   }
 
    createPassword();
 
@@ -64,6 +72,15 @@ var promptUpperCase = function() {
    }
    return txt;
 };
+
+var promptNumeric = function() {
+   var txt = "";
+   var nm = window.confirm("Would you like to include numeric characters?");
+   if (nm) {
+      txt += charNumber;
+   }
+   return txt;
+}
 
 var promptSpecial = function() {
    var txt = "";
