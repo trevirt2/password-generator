@@ -26,7 +26,7 @@ function promptForLength() {
 }
 
 
-//type of characters function
+//character type function
 function promptForType(question) {
   let response = prompt(question).toLowerCase();
   do {
